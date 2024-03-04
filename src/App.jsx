@@ -1,5 +1,15 @@
+import Banner from "./components/Banner";
+import Nav from "./components/Nav";
+
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <main className="relative">
+      <Nav />
+      <section className="xl:padding-l wide:padding-r padding-b">
+        <Banner />
+      </section>
+    </main>
+  );
 };
 
 export default App;
