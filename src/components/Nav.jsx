@@ -1,11 +1,19 @@
-import { navLinks } from "../assets/constants";
+import { navLinks } from "../constants";
 import { profile } from "../assets/images";
 import { hamburger } from "../assets/icons";
+import ToggleNav from "./ToggleNav";
+import { useState } from "react";
 
 const Nav = () => {
+  const [toggleNav, setToggleNav] = useState("hidden");
+  const handleToggle = () => {
+    if (toggleNav === "hidden") setToggleNav("block");
+    if (toggleNav === "block") setToggleNav("hidden");
+  };
+
   return (
     <header className="padding-x py-8 absolute z-10 w-full">
-      <nav className="flex justify-between items-center max-container">
+      <nav className="flex justify-between items-center max-container relative">
         <a
           href="https://www.instagram.com/aqerke_erkin/"
           className="flex justify-center items-center gap-4 lg:px-4 lg:py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl max-lg:rounded-full shadow-lg"
@@ -30,9 +38,13 @@ const Nav = () => {
             </li>
           ))}
         </ul>
-        <div className="hidden max-lg:block">
+        <div
+          className="hidden max-lg:block cursor-pointer"
+          onClick={handleToggle}
+        >
           <img src={hamburger} alt="humbur" width={25} height={25} />
         </div>
+        <ToggleNav toggle={`${toggleNav}`} />
       </nav>
     </header>
   );
