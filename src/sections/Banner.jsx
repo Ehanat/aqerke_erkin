@@ -12,7 +12,7 @@ const Banner = () => {
       id="home"
       className="w-full max-container flex lg:flex-row flex-col justify-center p-2 min-h-screen gap-10"
     >
-      <div className="flex relative lg:w-2/5 flex-col justify-center items-start w-full max-lg:padding-x pt-28">
+      <div className="flex relative lg:w-2/5 flex-col justify-center items-start w-full max-lg:padding-x pt-20">
         <p className="max-lg:hidden text-3xl font-montserrat text-coral-red leading-normal">
           MoRiS <br />
           8D Air-bag
@@ -23,7 +23,7 @@ const Banner = () => {
         <Button label="Бағасы" iconURL={arrowRight} destination="#details" />
       </div>
 
-      <div className="flex flex-col gap-2 justify-center items-center mt-16 max-sm:mt-6">
+      <div className="flex flex-col gap-2 justify-center items-center mt-16 max-sm:mt-0">
         <img
           src={bigImg}
           alt="machine"

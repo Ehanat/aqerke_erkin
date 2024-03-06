@@ -9,28 +9,28 @@ const Details = () => {
           Өнім мәліметтері
         </h2>
         <div className="grid grid-cols-2 gap-8 max-lg:gap-4 mt-8">
-          <p className="font-montserrat text-slate-300 text-lg leading-8">
+          <p className="font-montserrat text-slate-900 text-lg leading-8">
             Өнім атауы
             <br />{" "}
             <span className="font-palanquin text-xl font-semibold text-black">
               {productDetails.name}
             </span>
           </p>
-          <p className="font-montserrat text-slate-300 text-lg leading-8">
+          <p className="font-montserrat text-slate-900 text-lg leading-8">
             Өнім өлшемі
             <br />{" "}
             <span className="font-palanquin text-xl font-semibold text-black">
               {productDetails.size}
             </span>
           </p>
-          <p className="font-montserrat text-slate-300 text-lg leading-8">
+          <p className="font-montserrat text-slate-900 text-lg leading-8">
             Өнім салмағы
             <br />
             <span className="font-palanquin text-xl font-semibold text-black">
               {productDetails.weight}
             </span>
           </p>
-          <p className="font-montserrat text-slate-300 text-lg leading-8">
+          <p className="font-montserrat text-slate-900 text-lg leading-8">
             Компресс температурасы
             <br />
             <span className="font-palanquin text-xl font-semibold text-black">
