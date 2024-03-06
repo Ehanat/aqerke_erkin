@@ -1,3 +1,5 @@
+import { motion, useInView } from "framer-motion";
+
 import Banner from "./sections/Banner";
 import Nav from "./components/Nav";
 import Details from "./components/Details";

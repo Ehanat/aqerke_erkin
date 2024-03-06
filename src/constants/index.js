@@ -84,3 +84,13 @@ export const socialMedia = [
   { src: whatsapp, alt: "whatsapp logo", url: "https://wa.me/+77003167000" },
   { src: tiktok, alt: "TikTok logo", url: "https://tiktok.com" },
 ];
+
+export const boxSlideIn = {
+  init: { rotate: "0deg" },
+  move: { rotate: ["10deg", "0deg"] },
+};
+
+export const boxHover = {
+  init: { rotate: "0deg" },
+  action: { rotate: "5deg", scale: 1.1 },
+};

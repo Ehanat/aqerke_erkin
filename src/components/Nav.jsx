@@ -1,8 +1,9 @@
+import { useState } from "react";
+import { motion, useInView } from "framer-motion";
+
 import { navLinks } from "../constants";
 import { profile } from "../assets/images";
 import { hamburger } from "../assets/icons";
-import ToggleNav from "./ToggleNav";
-import { useState } from "react";
 
 const Nav = () => {
   const [toggleNav, setToggleNav] = useState("hidden");
@@ -10,6 +11,8 @@ const Nav = () => {
     if (toggleNav === "hidden") setToggleNav("block");
     if (toggleNav === "block") setToggleNav("hidden");
   };
+
+  const [selectedLink, setSelectedLink] = useState(navLinks[0]);
 
   return (
     <header className="padding-x py-8  z-10 w-full top-0 fixed">
@@ -28,13 +31,20 @@ const Nav = () => {
         </a>
         <ul className="flex-1 flex justify-end items-center gap-16 max-lg:hidden">
           {navLinks.map((link) => (
-            <li key={link.label}>
+            <li key={link.label} onClick={() => setSelectedLink(link)}>
               <a
                 href={link.href}
                 className="font-montserrat leading-normal text-lg text-slate-gray font-semibold"
               >
                 {link.label}
               </a>
+              {selectedLink === link ? (
+                <motion.div
+                  layoutId="underline"
+                  className="bg-coral-red w-15 h-1 rounded-full"
+                  id="underline"
+                ></motion.div>
+              ) : null}
             </li>
           ))}
         </ul>

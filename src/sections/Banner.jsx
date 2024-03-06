@@ -1,12 +1,23 @@
-import Button from "../components/Button";
-import { machine_sm } from "../assets/images";
-import { products } from "../constants";
-import ProductCard from "../components/ProductCard";
 import { useState } from "react";
+import { motion, useAnimationControls } from "framer-motion";
+
+import Button from "../components/Button";
+import ProductCard from "../components/ProductCard";
+
+import { machine_sm } from "../assets/images";
+import { boxHover, boxSlideIn, products } from "../constants";
 import { arrowRight } from "../assets/icons";
 
 const Banner = () => {
   const [bigImg, setBigImg] = useState(machine_sm);
+
+  const animationControls = useAnimationControls();
+
+  const handleClick = () => {
+    animationControls.start("move");
+    console.log("clicked");
+  };
+
   return (
     <section
       id="home"
@@ -17,29 +28,42 @@ const Banner = () => {
           MoRiS <br />
           8D Air-bag
         </p>
-        <h1 className="mt-8 mb-8 font-palanquin text-8xl max-sm:text-[70px] max-sm:leading-[82px] font-bold">
+        <motion.h1
+          initial={{ x: -450 }}
+          animate={{ x: 0 }}
+          className="mt-8 mb-8 font-palanquin text-8xl max-sm:text-[70px] max-sm:leading-[82px] font-bold"
+        >
           Аяқ массаж апараты
-        </h1>
+        </motion.h1>
         <Button label="Бағасы" iconURL={arrowRight} destination="#details" />
       </div>
 
       <div className="flex flex-col gap-2 justify-center items-center mt-16 max-sm:mt-0">
-        <img
+        <motion.img
           src={bigImg}
           alt="machine"
           width={500}
           height={500}
           className="object-contain"
+          variants={boxSlideIn}
+          initial="init"
+          animate={animationControls}
         />
         <div className="flex sm:gap-6 gap-1">
           {products.map((product, index) => (
-            <div key={index}>
+            <motion.div
+              key={index}
+              onClick={handleClick}
+              variants={boxHover}
+              initial="init"
+              whileHover="action"
+            >
               <ProductCard
                 img={product}
                 changeBigImg={() => setBigImg(product.bigImg)}
                 bigImg={bigImg}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

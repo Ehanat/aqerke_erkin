@@ -1,5 +1,4 @@
-import React from "react";
-
+import { motion } from "framer-motion";
 const Button = ({
   label,
   iconURL,
@@ -16,7 +15,10 @@ const Button = ({
       alt="destinaiton"
       target={`${blank ? "_blank" : "_self"}`}
     >
-      <button
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        drag="x"
+        dragConstraints={{ left: -100, right: 100 }}
         className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none ${
           bgColor
             ? `${bgColor} ${textColor} ${borderColor}`
@@ -31,7 +33,7 @@ const Button = ({
             className="ml-2 rounded-full w-5 h-5"
           />
         )}
-      </button>
+      </motion.button>
     </a>
   );
 };
